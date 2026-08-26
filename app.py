@@ -12,7 +12,7 @@ st.set_page_config(page_title="NOVA • Scheme Finder", page_icon="🤖", layout
 def ensure_database():
     """Prepare the local SQLite cache once per deployed app instance."""
     try:
-        if total_schemes() >= 500:
+        if total_schemes() >= 1500:
             return total_schemes()
     except FileNotFoundError:
         pass
@@ -20,7 +20,7 @@ def ensure_database():
     return total_schemes()
 
 try:
-    with st.spinner("NOVA is loading its 500-scheme universe for this deployment…"):
+    with st.spinner("NOVA is loading its 1500-scheme universe for this deployment…"):
         ensure_database()
 except Exception as exc:
     st.error("NOVA could not load the 500-scheme database.")
