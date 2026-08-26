@@ -1,0 +1,8 @@
+NOVA — STREAMLIT CLOUD READY
+
+1. Upload the CONTENTS of this folder to a GitHub repository.
+2. In Streamlit Community Cloud choose app.py as the main file.
+3. Deploy.
+4. First launch needs internet access to download the source scheme CSV and create the local 500-record SQLite cache.
+
+Do NOT upload .venv.
