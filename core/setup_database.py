@@ -1,4 +1,4 @@
-"""Build NOVA's local database from 500 real scheme records.
+"""Build NOVA's local database from 1500 real scheme records.
 
 Source dataset: SmartDuke Technologies' Indian Government Schemes Dataset 2026,
 whose dataset card says the records originate from myscheme.gov.in.
@@ -19,7 +19,7 @@ CACHE_PATH = BASE / "schemes_cache.json"
 
 DATASET = "smartduketech/indian-government-schemes-2025"
 API = "https://datasets-server.huggingface.co/rows"
-TARGET = 500
+TARGET = 1500
 
 
 def clean(value, default=""):
@@ -62,7 +62,7 @@ def occupation(raw):
 
 
 def fetch_rows():
-    """Download the source CSV and return the first 500 usable, unique records."""
+    """Download the source CSV and return the first 1500 usable, unique records."""
     import csv
     import io
 
