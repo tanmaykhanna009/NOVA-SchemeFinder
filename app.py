@@ -23,7 +23,7 @@ try:
     with st.spinner("NOVA is loading its 1500-scheme universe for this deployment…"):
         ensure_database()
 except Exception as exc:
-    st.error("NOVA could not load the 500-scheme database.")
+    st.error("NOVA could not load the 1500-scheme database.")
     st.code(str(exc))
     st.info("The deployed app needs internet access on its first launch so it can cache the scheme dataset locally.")
     st.stop()
