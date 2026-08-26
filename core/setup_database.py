@@ -170,13 +170,15 @@ def setup():
     except Exception as exc:
         if CACHE_PATH.exists():
             records = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-            create_db(records)
-            print(f"Network fetch failed ({exc}). Rebuilt database from cached {len(records)} records.")
-        else:
-            raise RuntimeError(
-                "Could not download the 500-scheme dataset. Connect to the internet and run "
-                "python core/setup_database.py again."
-            ) from exc
+            if len(records) >= TARGET:
+                create_db(records[:TARGET])
+                print(f"Network fetch failed ({exc}). Rebuilt database from cached {TARGET} records.")
+                return
+        raise RuntimeError(
+            f"Could not build the required {TARGET}-scheme database. "
+            f"The network download failed ({exc}) and no cache containing {TARGET} records is available. "
+            "A stale 500-record cache will not be accepted."
+        ) from exc
 
 
 if __name__ == "__main__":
